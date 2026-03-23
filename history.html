@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History - Philippine Artistry</title>
+    <title>History - Philippine Artistry Art Gallery</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-color: #5d4037;
+            --secondary-color: #efebe9;
+            --accent-color: #ffcc80;
+            --highlight-color: #bf360c;
+            --text-color: #3e2723;
+            --bg-overlay: rgba(244, 236, 207, 0.85);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+            url('https://cdn.luxatic.com/wp-content/uploads/2019/02/Vincent-van-Gogh.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .nav { background-color: var(--primary-color); padding: 15px 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); position: sticky; top: 0; z-index: 1000; }
+        .nav-list { list-style: none; display: flex; justify-content: center; gap: 40px; }
+        .nav-link { text-decoration: none; color: var(--secondary-color); font-weight: bold; font-size: 1.1rem; transition: color 0.3s ease; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-color); }
+        .side-menu { position: fixed; left: 0; top: 50%; transform: translateY(-50%); background-color: rgba(93, 64, 55, 0.9); padding: 20px 10px; border-radius: 0 10px 10px 0; display: flex; flex-direction: column; gap: 20px; box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); z-index: 999; }
+        .side-link { writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); color: var(--secondary-color); text-decoration: none; font-size: 0.9rem; font-weight: bold; padding: 10px 5px; transition: all 0.3s ease; border-left: 3px solid transparent; }
+        .side-link:hover { color: var(--accent-color); border-left: 3px solid var(--accent-color); }
+        main { flex: 1; margin-left: 60px; padding: 40px 20px; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .section-header { font-family: 'Bangers', cursive; font-size: 3rem; text-align: center; color: var(--highlight-color); text-shadow: 2px 2px 0px var(--accent-color); margin-bottom: 30px; }
+        .history-container { max-width: 1100px; margin: 0 auto; }
+        .artist-card { display: grid; grid-template-columns: 180px 1fr 300px; align-items: flex-start; gap: 25px; background: rgba(255, 255, 255, 0.9); margin-bottom: 50px; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .profile-circle { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 5px solid var(--primary-color); position: sticky; top: 100px; }
+        .profile-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .bio-content h2 { font-family: 'Cinzel', serif; color: #4e342e; margin-bottom: 15px; font-size: 2rem; }
+        .bio-text { font-size: 0.95rem; line-height: 1.6; color: var(--primary-color); max-height: 300px; overflow-y: auto; padding-right: 15px; margin-bottom: 15px; border-bottom: 1px dashed #d7ccc8; }
+        .bio-text p { margin-bottom: 12px; }
+        .bio-text::-webkit-scrollbar { width: 5px; }
+        .bio-text::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
+        .digital h2 { font-family: 'Bangers', cursive; color: var(--highlight-color); font-size: 2.2rem; }
+        .art-square { width: 100%; height: 250px; border-radius: 12px; overflow: hidden; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: sticky; top: 100px; }
+        .art-square img { width: 100%; height: 100%; object-fit: cover; }
+        .footer { margin-top: auto; padding: 20px; text-align: center; background-color: rgba(93, 64, 55, 0.1); border-top: 1px solid #d7ccc8; }
+        @media (max-width: 1000px) { .artist-card { grid-template-columns: 1fr; text-align: center; } .profile-circle, .art-square { margin: 0 auto; position: static; } .bio-text { padding-right: 0; } }
+    </style>
 </head>
 <body>
 
@@ -13,43 +57,72 @@
     <ul class="nav-list">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
-        <li><a href="history.html" class="nav-link" style="color: var(--accent-color);">Arts & History</a></li>
+        <li><a href="history.html" class="nav-link active">Arts & History</a></li>
     </ul>
 </nav>
 
-<main>
-    <section class="page-section">
-        <h1 class="section-header">Filipino Art Masters</h1>
-        
-        <div class="history-container">
-            <article class="artist-card">
-                <div class="profile-circle">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Fernando_Amorsolo.jpg" alt="Fernando Amorsolo">
-                </div>
-                <div>
-                    <h2>Fernando Amorsolo</h2>
-                    <p>Known as the "Grand Old Man of Philippine Art," he was the first National Artist. He is famous for his backlighting technique and rural Philippine landscapes.</p>
-                </div>
-                <div class="art-square">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Amorsolo_Planting_Rice.jpg/800px-Amorsolo_Planting_Rice.jpg" alt="Planting Rice">
-                </div>
-            </article>
+<aside class="side-menu">
+    <a href="index.html" class="side-link">Home</a>
+    <a href="tutorials.html" class="side-link">Tutorials</a>
+    <a href="history.html" class="side-link">History</a>
+</aside>
 
-            <article class="artist-card">
-                <div class="profile-circle">
-                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_nFq7B1H2Z4pY0GkXoX9yYyYyYyYyYy=s176-c-k-c0x00ffffff-no-rj" alt="GeloAnimations">
+<main>
+    <div class="history-container">
+        <h1 class="section-header">Filipino Art Masters</h1>
+
+        <article class="artist-card">
+            <div class="profile-circle"><img src="https://cdn.tatlerasia.com/tatlerasia/i/2021/10/12091512-18159359816-92de92d368-o_cover_1199x1363.jpg" alt="Fernando Amorsolo"></div>
+            <div class="bio-content">
+                <h2>Fernando Amorsolo</h2>
+                <div class="bio-text">
+                    <p>Fernando Amorsolo was the first-ever National Artist of the Philippines...</p>
+                    <p>Today, his legacy lives on in the National Museum and private collections.</p>
                 </div>
-                <div>
-                    <h2>GeloAnimations</h2>
-                    <p>A prominent Filipino digital creator and animator. He is part of the new wave of "Pinoy Artistry" bringing local humor to life through digital storytelling.</p>
+            </div>
+            <div class="art-square"><img src="https://cdn.kahimyang.com/resources/Amorsolo/under_the_mango_tree.webp" alt="Amorsolo Art"></div>
+        </article>
+
+        <article class="artist-card">
+            <div class="profile-circle"><img src="https://live.staticflickr.com/337/19361081819_35b3352458_b.jpg" alt="Juan Luna"></div>
+            <div class="bio-content">
+                <h2>Juan Luna</h2>
+                <div class="bio-text">
+                    <p>Juan Luna was a giant of 19th-century art...</p>
+                    <p>Despite a personal life marked by tragedy and controversy, Luna remains a symbol of Filipino pride.</p>
                 </div>
-                <div class="art-square">
-                    <img src="https://i.ytimg.com/vi/uX_FidY2bHk/maxresdefault.jpg" alt="Digital Art">
+            </div>
+            <div class="art-square"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Boceto_for_Spoliarium_Juan_Luna_y_Novicio.jpg/330px-Boceto_for_Spoliarium_Juan_Luna_y_Novicio.jpg" alt="Juan Luna - Spoliarium"></div>
+        </article>
+
+        <article class="artist-card digital">
+            <div class="profile-circle"><img src="https://tse1.mm.bing.net/th/id/OIP.gugCeKh-YiQ7JHLbVF-E2QHaHa?pid=Api&h=220&P=0" alt="Gelonimation"></div>
+            <div class="bio-content">
+                <h2>Gelonimation</h2>
+                <div class="bio-text">
+                    <p>Gelonimation is a pioneer of the "Storytime Animation" genre...</p>
                 </div>
-            </article>
-        </div>
-    </section>
+            </div>
+            <div class="art-square"><img src="https://gelonimation.solutionsdevhive.com/Thumbnails/Untitled1127_20250213220233.jpg" alt="Gelonimation Art"></div>
+        </article>
+
+        <article class="artist-card digital">
+            <div class="profile-circle"><img src="https://scontent.fmnl4-5.fna.fbcdn.net/v/t39.30808-6/448891135_489095233477346_2690958212103334205_n.jpg?_nc_cat=102&oh=00_AfwOXRSAaCYhNZAHyUPNy7psh1fLDIYCKahv_7ESNj0bMw&oe=69BDC861" alt="Abe Animated"></div>
+            <div class="bio-content">
+                <h2>Abe Animated</h2>
+                <div class="bio-text">
+                    <p>Abe Animated is a prominent figure in the local independent animation scene...</p>
+                </div>
+            </div>
+            <div class="art-square"><img src="https://img.youtube.com/vi/zn7HYO9xwSk/maxresdefault.jpg" alt="Abe Animated Art"></div>
+        </article>
+    </div>
 </main>
+
+<footer class="footer">
+    <p><i>"Art isn't all about the details but on how you show your imagination"</i></p>
+    <p style="font-size: 0.8rem; margin-top: 5px;">contact@philippineartistry.com | 09989980979</p>
+</footer>
 
 </body>
 </html>
